@@ -29,12 +29,6 @@
 	
 	<dependencies>
 		
-		<!-- Help monitor and manage Application -->
-<!-- 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-actuator</artifactId>
-		</dependency> -->
-		
 		<!-- Spring Boot Web Module -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
@@ -105,16 +99,23 @@
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>1.3.5</version>
 				<configuration>
-					<configurationFile>${basedir}/src/main/resources/mybaits/generatorConfig.xml</configurationFile>
+					<configurationFile>${basedir}/src/main/resources/mybatis/generatorConfig.xml</configurationFile>
 					<overwrite>true</overwrite>
 					<verbose>true</verbose>
 				</configuration>
 				<dependencies>
-					<!-- DB Rely -->
+					<!-- DB Driver Rely -->
 					<dependency>
 						<groupId>mysql</groupId>
 						<artifactId>mysql-connector-java</artifactId>
 						<version>${mysql.version}</version>
+					</dependency>
+					
+					<!-- Mybatis Generator -->
+					<dependency>
+					    <groupId>org.mybatis.generator</groupId>
+					    <artifactId>mybatis-generator-core</artifactId>
+					    <version>1.3.5</version>
 					</dependency>
 					
 					<!-- Mybatis Mapper -->
