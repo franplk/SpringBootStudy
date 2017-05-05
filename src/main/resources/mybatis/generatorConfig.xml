@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 
 <generatorConfiguration>
 
 	<!-- 加载配置项或者配置文件 -->
-	<properties resource="config/db.propertites" />
+	<properties resource="config/db.properties" />
 
 	<!-- 代码生成配置规则 -->
 	<context id="MyConfig" defaultModelType="flat" targetRuntime="MyBatis3">
@@ -23,12 +22,7 @@
 		</commentGenerator>
 
 		<!-- 连接数据库 -->
-		<jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}" />
-
-		<!-- java类型处理器 -->
-		<javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
-			<property name="forceBigDecimals" value="false" />
-		</javaTypeResolver>
+		<jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}"></jdbcConnection>
 
 		<!-- java模型创建器，是必须要的元素 -->
 		<javaModelGenerator targetPackage="cn.plk.mybatis.model" targetProject="src/main/java">
@@ -38,19 +32,17 @@
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
+		<!-- 生成SQL map的XML文件生成器 -->
+		<sqlMapGenerator targetPackage="mybatis/mapper" targetProject="src/main/resources"></sqlMapGenerator>
+
 		<!-- Mapper接口生成方式 -->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.plk.mybatis.mapper" targetProject="src/main/java">
 			<!-- <property name="rootInterface" value=""/> -->
 		</javaClientGenerator>
 
-		<!-- 生成SQL map的XML文件生成器 -->
-		<sqlMapGenerator targetPackage="mybatis/mapper" targetProject="src/main/resources" />
-
 		<!-- table 配置 -->
 		<table tableName="catalog">
 			<generatedKey column="id" sqlStatement="Mysql" />
 		</table>
-		
 	</context>
-	
 </generatorConfiguration>
