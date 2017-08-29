@@ -15,7 +15,7 @@ import cn.plk.example.service.HelloService;
  *
  */
 @Controller
-public class HelloController {
+public class HelloController extends BaseController {
 	
 	@Autowired
 	private HelloService helloService;
